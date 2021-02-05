@@ -138,9 +138,32 @@ form button:hover {
     transform: rotate(10deg);
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
     box-shadow: none;
+    cursor: pointer;
     font-weight: bold;
     opacity: 1;
+    outline: none;
     transform: scale(1.1);
+}
+
+ul{ 
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 25px;
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 10px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.birthday {
+    border-bottom: 1px solid var(--white);
 }

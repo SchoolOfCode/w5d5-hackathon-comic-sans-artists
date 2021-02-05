@@ -20,12 +20,12 @@
             <form id="input-form">
                 <label>
                     Enter name
-                    <input type="text"/>
+                    <input type="text" name="fullName"/>
                 </label>
                 <br>
                 <label>
                     Day of Birth
-                    <input type="number" min = "1" max = "31"/>
+                    <input type="number" name="day" min = "1" max = "31"/>
                 </label>
                 <label>
                     Month of Birthday
@@ -44,11 +44,11 @@
                         <option>December</option>
                     </select>
                 </label>
-                <button type="submit" id="submit-button" onclick="window.location.month-compare.html">Submit</button>
+                <button type="submit" id="submit-button">Submit</button>
             </form>
         </div>
         <div class="container">
-            <h2> Find your birthday month buddy!</h2>
+            <h2> Find your birthday month buddies!</h2>
             <button class="btn month small rotate-left">January</button>
             <button class="btn month">February</button>
             <button class="btn month big rotate-left">March</button>
