@@ -1,0 +1,19 @@
+BUILD FULL STACK BIRTHDAY COMPARITOR
+
+1. Create joint account/project on heroku
+2. Create Table using Postgress in bash - columns: Id, Name, Day, Month, Star Sign.
+3. Fill in Table with fun data.
+4. BACK END
+
+Base Respository
+Birthday Respository - [GET] / GETALL / CREATE / DELETE / UPDATE / GETALLBYTMONTH / GETBYNAME / GET BY MATCHING STAR SIGN
+Birthday Controller
+IRepository
+Birthday API (made for us)
+Birthday.cs
+
+5. FRONT END
+
+- User will put in Birthday and Month and Star Sign which is stored in our database
+- Taken to another page with 12 Month Buttons which load below the starry starry cover and starry buttons
+- footer 'made by SpeedyFingers and HorseGirl'
