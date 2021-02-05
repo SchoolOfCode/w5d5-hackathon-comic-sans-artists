@@ -44,7 +44,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Insert([FromBody] User user)
+    public async Task<IActionResult> InsertNewUser([FromBody] User user)
     {
         try {
             var newUser = await _userRepository.Insert(user);

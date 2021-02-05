@@ -23,6 +23,6 @@ public class UserRepository : BaseRepository, IRepository<User>
    {
        using var connection = CreateConnection();
 
-       return await connection.QuerySingleAsync<User>("INSERT INTO User (FullName, Day, Month, StarSign) VALUES (@FullName, @Day, @Month, @StarSign) RETURNING *;", user);
+       return await connection.QuerySingleAsync<User>("INSERT INTO Users (FullName, Day, Month, StarSign) VALUES (@FullName, @Day, @Month, @StarSign) RETURNING *;", user);
    }
 }
