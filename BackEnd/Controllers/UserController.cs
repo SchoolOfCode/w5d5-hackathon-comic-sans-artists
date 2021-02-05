@@ -21,7 +21,7 @@ public class UserController : ControllerBase
     {
         try {
 
-            var users = await _userRepository.GetByMonth(month);
+            var users = await _userRepository.GetAllByMonth(month);
 
             return Ok(users);
         }
