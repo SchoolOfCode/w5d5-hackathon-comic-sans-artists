@@ -39,3 +39,11 @@ form {
 input, button, select {
     font-size: inherit;
 }
+
+
+.container {
+    background-image: url("https://cdn.wallpapersafari.com/91/2/TAGs3P.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 550px;
+}
