@@ -1,6 +1,6 @@
 BUILD FULL STACK BIRTHDAY COMPARITOR
 
-1. Create joint account/project on heroku
+1. Create joint account/project on heroku 
 2. Create Table using Postgress in bash - columns: Id, Name, Day, Month, Star Sign.
 3. Fill in Table with fun data.
 4. BACK END
