@@ -1,15 +1,11 @@
-using System;
 
-namespace BackEnd
-{
-    public class WeatherForecast
+    public class User
     {
-        public DateTime Date { get; set; }
+        public long? Id {get; set;}
+        public string FullName {get; set;}
+        public int Day {get; set;}
+        public string Month {get; set;}
+        public string StarSign {get; set;}
 
-        public int TemperatureC { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-
-        public string Summary { get; set; }
     }
-}
+
