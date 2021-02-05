@@ -4,6 +4,7 @@
 }
 
 body, html {
+    background-color: #0f0f0f;
     height: 100%;
     font-family: 'Amatic SC', cursive;
 }
@@ -44,6 +45,34 @@ input, button, select {
 .container {
     background-image: url("https://cdn.wallpapersafari.com/91/2/TAGs3P.jpg");
     background-position: center;
-    background-size: cover;
+    background-size: fill;
+    background-repeat: no-repeat;
     height: 550px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+button {
+    background-color: rgba(66, 66, 66, 0);
+    border-radius: 50%;
+    font-size: 50px;
+    font-family: inherit;
+    display: block;
+    color: #A2D0C1;
+    padding: 50px;
+    transform: rotate(35deg);
+    transition: .5s all;
+    }
+
+.big {
+    transform: scale(1.2);
+}
+.small {
+    transform: scale(0.8);
+}
+
+button:hover {
+    background: white;
+    border: 2px solid #A2D0C1;
 }
