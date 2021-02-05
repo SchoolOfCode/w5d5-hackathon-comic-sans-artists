@@ -1,8 +1,8 @@
 :root {
-    --form-bg: rgba(0, 0, 0, .25);
-    --yellow: #F8DC81;
     --blue: #A2D0C1;
+    --form-bg: rgba(0, 0, 0, .25);
     --white: #EFF7E1;
+    --yellow: #F8DC81;
 }
 * {
     margin: 0;
@@ -59,11 +59,11 @@ input, button, select {
 input, 
 select {
     background: var(--form-bg);
-    border: none;
     border-bottom: 1px solid var(--yellow);
+    border: none;
+    font-weight: bold;
     margin-bottom: 10px;
     outline: none;
-    font-weight: bold;
     text-align: right;
 }
 input:focus{
