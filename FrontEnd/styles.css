@@ -5,14 +5,37 @@
 
 body, html {
     height: 100%;
-   
+    font-family: 'Amatic SC', cursive;
 }
 
 .backgroundimage {
-    background-image: url("https://www.whiteroomstudio.com.sg/wordpress/wp-content/uploads/2020/01/Baby-Cake-Smash-Photography-Singapore-crying-child-with-cake-black-and-white.jpg");
-   
-   height: 100%;
+    background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/4364/production/_115325271_gettyimages-514080166.jpg");
+    height: 100%;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    color: #F8DC81;
+    font-size: 150px;
+    font-weight: bold;
+    line-height: .9;
+}
+h2 {
+    color: #A2D0C1;
+    font-size: 50px;
+}
+
+form {
+    font-size: 30px;
+    color: #EFF7E1;
+}
+input, button, select {
+    font-size: inherit;
 }
