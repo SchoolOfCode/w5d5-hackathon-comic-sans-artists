@@ -35,12 +35,22 @@ h2 {
 }
 
 form {
+    margin-top: 70px;
     font-size: 30px;
     color: #EFF7E1;
 }
 input, button, select {
     font-size: inherit;
 }
+form button {
+    margin: 20px auto;
+    transform: rotate(0);
+    transition: .5s all;
+}
+form button:hover {
+    transform: rotate(25deg);
+}
+
 
 
 .container {
@@ -48,7 +58,7 @@ input, button, select {
     background-position: center;
     background-size: fill;
     background-repeat: no-repeat;
-    height: 550px;
+    height: 100%;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
