@@ -5,15 +5,24 @@ using System.Threading.Tasks;
 
 public class UserRepository : BaseRepository, IRepository<User>
 {
-   public IEnumerable<User> GetAllByMonth(string month)
+    public UserRepository(IConfiguration configuration) : base(configuration) { }
+    public async Task<IEnumerable<User>> GetAll()
    {
        using var connection = CreateConnection();
-       return connection.Query<UserRepository>("SELECT * FROM Users WHERE Month = @Month;", new {Month = month});
+
+       return await connection.QueryAsync<User>("SELECT * FROM Users ORDER BY id;");
+   }
+    public async Task<IEnumerable<User>> GetAllByMonth(string month)
+   {
+       using var connection = CreateConnection();
+
+       return await connection.QueryAsync<User>("SELECT * FROM Users WHERE Month = @Month;", new {Month = month});
    }
 
-   public User Insert(User user)
+   public async Task<User> Insert(User user)
    {
        using var connection = CreateConnection();
-       return connection.QuerySingle<User>("INSERT INTO User (FullName, Day, Month, StarSign) VALUES (@FullName, @Day, @Month, @StarSign) RETURNING *;", user);
+
+       return await connection.QuerySingleAsync<User>("INSERT INTO User (FullName, Day, Month, StarSign) VALUES (@FullName, @Day, @Month, @StarSign) RETURNING *;", user);
    }
 }

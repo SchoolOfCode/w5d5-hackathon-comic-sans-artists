@@ -16,6 +16,19 @@ public class UserController : ControllerBase
     }
 
    
+    [HttpGet]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        try {
+            var users = await _userRepository.GetAll();
+
+            return Ok(users);
+        }
+        catch (Exception){
+            return NotFound($"/users/ Not Found");
+        }
+    }
+
     [HttpGet("{month}")]
     public async Task<IActionResult> GetByMonth(string month)
     {
