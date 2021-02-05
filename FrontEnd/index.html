@@ -38,7 +38,14 @@
                     <option>December</option>
                 </select>
             </label>
+            <button type="submit" onclick="goNextPage()">Submit</button>
         </form>
     </div>
 </body>
+    <script>
+       function goNextPage() {
+           event.preventDefault();
+         window.location.href="month-compare.html";
+       }
+    </script>
 </html>
