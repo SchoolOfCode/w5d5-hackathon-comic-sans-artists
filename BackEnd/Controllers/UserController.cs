@@ -5,35 +5,84 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace BackEnd.Controllers
+
+[ApiController]
+[Route("users")]
+public class UserController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    private readonly IRepository<User> _userRepository;
+
+    public UserController(IRepository<User> userRepository)
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        _userRepository = userRepository;
+    }
 
-        private readonly ILogger<WeatherForecastController> _logger;
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        try {
+            var books = await _bookRepository.GetAll();
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
+            return Ok(books);
         }
+        catch(Exception){
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+            return NotFound();
+        }
+    }
+
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Get(long id)
+    {
+        try {
+            var book = await _bookRepository.Get(id);
+
+            return Ok(book);
+        }
+        catch (Exception){
+            return NotFound($"/books/{id} Not Found");
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async void Delete(long id)
+    {
+        try
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            await _bookRepository.Delete(id);
+        }
+        catch(Exception){
+
+            NotFound($"/books/{id} Not Found"); //this appears to never get returned
+        }
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(long id, [FromBody] Book book)
+    {
+        try {
+            var updatedBook = await _bookRepository.Update(new Book { Id = id, Title = book.Title, Author = book.Author });
+
+            return Ok(updatedBook);
+        }
+        catch(Exception){
+
+            return NotFound($"/books/{id} Not Found");
+        }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Insert([FromBody] Book book)
+    {
+        try {
+            var newBook = await _bookRepository.Insert(book);
+            return Created($"/books/{book.Id}", newBook);
+        }
+        catch (Exception){
+
+            return BadRequest("Could not create book, check request and try again.");
         }
     }
 }
+
