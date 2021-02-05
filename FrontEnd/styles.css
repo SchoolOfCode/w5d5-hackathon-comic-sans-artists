@@ -1,3 +1,9 @@
+:root {
+    --form-bg: rgba(0, 0, 0, .25);
+    --yellow: #F8DC81;
+    --blue: #A2D0C1;
+    --white: #EFF7E1;
+}
 * {
     margin: 0;
     padding: 0;
@@ -5,85 +11,136 @@
 
 body, html {
     background-color: #0f0f0f;
-    height: 100%;
     font-family: 'Amatic SC', cursive;
 }
 
-.backgroundimage {
+.form-container {
+    align-items: center;
     background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/4364/production/_115325271_gettyimages-514080166.jpg");
-    height: 100%;
-    background-position: center;
-    background-size: cover;
+    background-position: top center;
     background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 10px solid var(--blue);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    min-height: 50vh;
     text-align: center;
 }
 
+.title{
+    background-color: var(--form-bg);
+    border-radius: 10px 10px;
+    padding: 20px;
+}
+
 h1 {
-    font-family: 'Architects Daughter', cursive;
     color: #F8DC81;
+    font-family: 'Architects Daughter', cursive;
     font-size: 100px;
     font-weight: bold;
     line-height: .9;
 }
 h2 {
-    color: #A2D0C1;
+    color: var(--blue);
     font-size: 50px;
 }
 
 form {
-    margin-top: 70px;
+    color: var(--white);
     font-size: 30px;
-    color: #EFF7E1;
+    margin-top: 70px;
 }
 input, button, select {
     font-size: inherit;
+    font-family: inherit;
 }
+
+input, 
+select {
+    background: var(--form-bg);
+    border: none;
+    border-bottom: 1px solid var(--yellow);
+    margin-bottom: 10px;
+    outline: none;
+    font-weight: bold;
+    text-align: right;
+}
+input:focus{
+    border-bottom: 1px solid var(--blue);
+}
+select{
+    color: var(--yellow);
+    padding: 5px 10px;
+}
+
 form button {
-    margin: 20px auto;
-    transform: rotate(0);
+    background: var(--yellow);
+    border-radius: 20% 40%;
+    border: 2px solid black;
+    box-shadow: 2px 5px 10px 5px var(--form-bg);
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px auto;
+    padding: 10px 20px;
     transition: .5s all;
 }
 form button:hover {
-    transform: rotate(25deg);
+    border-radius: 40% 20%;
+    box-shadow: none;
 }
 
 
 
 .container {
-    background-image: url("https://cdn.wallpapersafari.com/91/2/TAGs3P.jpg");
+    background-image: url("https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
     background-position: center;
-    background-size: fill;
     background-repeat: no-repeat;
-    height: 100%;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    padding-top: 30px;
 }
 
-button {
-    background-color: rgba(66, 66, 66, 0);
-    border-radius: 50%;
-    font-size: 50px;
-    font-family: inherit;
-    display: block;
-    color: #A2D0C1;
-    padding: 50px;
-    transform: rotate(35deg);
+.container h2 {
+    border-bottom: 1px solid var(--yellow);
+    color: var(--yellow);
+    grid-column: span 4;
+    margin-bottom: 50px;
+}
+
+.btn {
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 50% 50%;
+    box-shadow: 0px 0px 20px 5px var(--form-bg);
+    font-size: 30px;
+    color: var(--black);
+    margin-bottom: 50px;
+    opacity: 0.8;
+    padding: 5px 10px;
+    transform: rotate(5deg);
     transition: .5s all;
     }
 
 .big {
-    transform: scale(1.2);
+    transform: scale(1.5);
 }
 .small {
     transform: scale(0.8);
 }
+.rotate-left {
+    transform: rotate(-10deg);
+}
+.rotate-right{
+    transform: rotate(10deg);
+}
 
-button:hover {
-    background: white;
-    border: 2px solid #A2D0C1;
+.btn:hover {
+    box-shadow: none;
+    font-weight: bold;
+    opacity: 1;
+    transform: scale(1.1);
 }

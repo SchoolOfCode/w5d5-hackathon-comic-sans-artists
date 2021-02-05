@@ -11,39 +11,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class = "backgroundimage">
-        <div class="title">
-            <h1>BIRTHDAY BUDDIES</h1>
-            <h2>Because no one wants to spend their birthday alone</h2>
+    <div class = "main-container">
+        <div class="form-container">
+            <div class="title">
+                <h1>BIRTHDAY BUDDIES</h1>
+                <h2>Because no one wants to spend their birthday alone</h2>
+            </div>
+            <form id="input-form">
+                <label>
+                    Enter name
+                    <input type="text"/>
+                </label>
+                <br>
+                <label>
+                    Day of Birth
+                    <input type="number" min = "1" max = "31"/>
+                </label>
+                <label>
+                    Month of Birthday
+                    <select name = "Month">
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                </label>
+                <button type="submit" id="submit-button" onclick="window.location.month-compare.html">Submit</button>
+            </form>
         </div>
-        <form id="input-form">
-            <label>
-                Enter name
-                <input type="text"/>
-            </label>
-            <label>
-                Day of Birth
-                <input type="number" min = "1" max = "31"/>
-            </label>
-            <label>
-                Month of Birthday
-                <select name = "Month">
-                    <option>January</option>
-                    <option>February</option>
-                    <option>March</option>
-                    <option>April</option>
-                    <option>May</option>
-                    <option>June</option>
-                    <option>July</option>
-                    <option>August</option>
-                    <option>September</option>
-                    <option>October</option>
-                    <option>November</option>
-                    <option>December</option>
-                </select>
-            </label>
-            <button type="submit" id="submit-button" onclick="window.location.month-compare.html">Submit</button>
-        </form>
+        <div class="container">
+            <h2> Find your birthday month buddy!</h2>
+            <button class="btn month small rotate-left">January</button>
+            <button class="btn month">February</button>
+            <button class="btn month big rotate-left">March</button>
+            <button class="btn month big">April</button>
+            <button class="btn month big">May</button>
+            <button class="btn month rotate-left">June</button>
+            <button class="btn month big">July</button>
+            <button class="btn month rotate-right">August</button>
+            <button class="btn month small">September</button>
+            <button class="btn month big">October</button>
+            <button class="btn month rotate-left">November</button>
+            <button class="btn month big">December</button>
+        </div>
+        <ul class="birthday-buddies">
+        </ul>
     </div>
     <script src="main.js"></script>
 </body>
