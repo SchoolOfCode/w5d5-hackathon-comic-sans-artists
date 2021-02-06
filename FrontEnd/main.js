@@ -6,11 +6,11 @@ const backendURL = "http://localhost:5000";
 
 async function getData(query) {
     const res = await fetch(`${backendURL}/users/${query}`);
-    const data = await res.json();
+    const data = await res.json(); //gets data
 
-    data.forEach(item => displayUser(item));
+    data.forEach(item => displayUser(item)); //adds each user to ul one by one
 
-    if (data.length === 0) {
+    if (data.length === 0) { //for if database returns nothing
         const li = document.createElement("li");
         li.innerHTML = `currently no users found for ${query}`;
 
@@ -19,8 +19,10 @@ async function getData(query) {
 }
 
 function displayUser(user) {
-    const { id, fullName, day, month } = user;
-    const dayStr = day.toString();
+    const { id, fullName, day, month } = user; //object destructuring for easy access
+    const dayStr = day.toString(); //turn day into string to allow switch to access only the last character
+
+    //sets so 2nd, 3rd etc read correctly 
     let dayEnd = "";
     switch (dayStr[day.length -1]) {
         case 1:
@@ -36,29 +38,29 @@ function displayUser(user) {
             dayEnd = "th"
     }
     
-    const li = document.createElement("li");
-    li.innerHTML = `${fullName} <span class="birthday">${day}${dayEnd} of ${month}</span>`
+    const li = document.createElement("li"); //make li
+    li.innerHTML = `${fullName} <span class="birthday">${day}${dayEnd} of ${month}</span>`; //populate with user data
 
-    buddyList.appendChild(li);
+    buddyList.appendChild(li); //display on ul
 }
 
 monthBtns.forEach(button => button.addEventListener("click", () => {
-    buddyList.innerHTML = "";
+    buddyList.innerHTML = ""; //remove existing list
 
-    getData(button.innerText);
+    getData(button.innerText); //call get data with the month (is equal to inner text)
 }));
 
 
 async function submitUser(event) {
-    event.preventDefault();
+    event.preventDefault(); //stop page reload
 
-    const newUser = {
+    const newUser = { //turn form data into user object to pass to API
         fullName : event.target[0].value,
         day : event.target[1].value,
         month : event.target[2].value,
     }
     
-    await postUser("/users", "POST", newUser);
+    await postUser("/users", "POST", newUser); //Send post request to /users
 }
 
 async function postUser(path, method, body) {
@@ -67,11 +69,10 @@ async function postUser(path, method, body) {
 		headers : {
 			'content-type' : 'application/json',
 		},
-		body    : JSON.stringify(body),
+		body    : JSON.stringify(body), //turns body object into json
 	});
-	// const data = await res.json();
 }
 
-birthdayForm.addEventListener("submit", submitUser)
-//initial load
-getData("");
+birthdayForm.addEventListener("submit", submitUser);
+
+getData(""); //initial load
