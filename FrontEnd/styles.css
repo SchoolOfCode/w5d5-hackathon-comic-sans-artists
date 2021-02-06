@@ -1,4 +1,5 @@
-:root {
+/* CSS variables (makes it easier to change colors at a later date */
+:root { 
     --blue: #A2D0C1;
     --form-bg: rgba(0, 0, 0, .25);
     --white: #EFF7E1;
@@ -109,7 +110,7 @@ form button:hover {
 .container h2 {
     border-bottom: 1px solid var(--yellow);
     color: var(--yellow);
-    grid-column: span 4;
+    grid-column: span 4; /* makes header span across all the columns */
     margin-bottom: 50px;
 }
 
@@ -126,7 +127,7 @@ form button:hover {
     transform: rotate(5deg);
     transition: .5s all;
     }
-
+/* makes some 'stars' look different */
 .big {
     transform: scale(1.5);
 }
